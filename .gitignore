@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# Images (usar SVGs en su lugar)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

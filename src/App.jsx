@@ -1,13 +1,20 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import AppLayout from './components/AppLayout'
 import Hero from './components/Hero'
-import DemoCenter from './components/DemoCenter'
+import SandboxPage from './pages/SandboxPage'
 
 function App() {
   return (
-    <AppLayout>
-      <Hero />
-      <DemoCenter />
-    </AppLayout>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={
+          <AppLayout>
+            <Hero />
+          </AppLayout>
+        } />
+        <Route path="/sandbox" element={<SandboxPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
