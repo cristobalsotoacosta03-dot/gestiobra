@@ -1,0 +1,79 @@
+@echo off
+chcp 65001 >nul
+echo.
+echo ════════════════════════════════════════════════════════════════
+echo   GestiObra - Configuracion Completa de Stripe
+echo ════════════════════════════════════════════════════════════════
+echo.
+echo Abriendo Stripe Dashboard...
+echo.
+start https://dashboard.stripe.com/register
+timeout /t 3 >nul
+echo.
+echo ════════════════════════════════════════════════════════════════
+echo   PASO 1: Crear cuenta en Stripe (Modo TEST)
+echo ════════════════════════════════════════════════════════════════
+echo.
+echo 1. Crea tu cuenta en https://dashboard.stripe.com/register
+echo 2. IMPORTANTE: Activa el modo TEST (toggle en la parte superior)
+echo 3. Ve a: Developers ^> API keys
+echo 4. Copia tus claves:
+echo    - Publishable key (pk_test_...)
+echo    - Secret key (sk_test_...)
+echo.
+echo ════════════════════════════════════════════════════════════════
+echo   PASO 2: Crear Productos y Precios
+echo ════════════════════════════════════════════════════════════════
+echo.
+echo Ve a: Products ^> Add product
+echo.
+echo Producto 1 - Basic:
+echo   Name: GestiObra Basic
+echo   Pricing: 49.00 EUR / month
+echo   Billing: Monthly
+echo   Copia el Price ID (price_1...)
+echo.
+echo Producto 2 - Pro:
+echo   Name: GestiObra Pro
+echo   Pricing: 99.00 EUR / month
+echo   Billing: Monthly
+echo   Copia el Price ID (price_1...)
+echo.
+echo Producto 3 - Enterprise:
+echo   Name: GestiObra Enterprise
+echo   Pricing: 249.00 EUR / month
+echo   Billing: Monthly
+echo   Copia el Price ID (price_1...)
+echo.
+echo ════════════════════════════════════════════════════════════════
+echo   PASO 3: Configurar Webhook Local
+echo ════════════════════════════════════════════════════════════════
+echo.
+echo 1. Instala Stripe CLI: https://stripe.com/docs/stripe-cli
+echo 2. En una terminal, ejecuta:
+echo    stripe login
+echo 3. Luego ejecuta:
+echo    stripe listen --forward-to localhost:5175/api/stripe/webhook
+echo 4. Copia el Webhook secret (whsec_...)
+echo.
+echo ════════════════════════════════════════════════════════════════
+echo   PASO 4: Actualizar Codigo
+echo ════════════════════════════════════════════════════════════════
+echo.
+echo Actualiza los Price IDs en:
+echo   - src/pages/Pricing.jsx (linea 19, 35, 51)
+echo   - src/components/SubscriptionGate.jsx (linea 100, 107, 115)
+echo.
+echo ════════════════════════════════════════════════════════════════
+echo   PASO 5: Configurar Variables de Entorno
+echo ════════════════════════════════════════════════════════════════
+echo.
+echo Agrega a tu archivo .env:
+echo.
+echo VITE_STRIPE_PUBLISHABLE_KEY=pk_test_xxx
+echo STRIPE_SECRET_KEY=sk_test_xxx
+echo STRIPE_WEBHOOK_SECRET=whsec_xxx
+echo.
+echo ════════════════════════════════════════════════════════════════
+echo.
+pause

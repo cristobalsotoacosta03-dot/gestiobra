@@ -1,0 +1,71 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+.vite/
+.vercel/
+.netlify/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production
+.env.staging
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+.gitignore
+
+# Test coverage
+coverage/
+
+# Misc
+.cache/
+temp/
+tmp/
+*.tmp
+*.temp
+
+# Supabase
+.supabase/
+
+# Database
+*.db
+*.sqlite
+
+# Media uploads (if any)
+uploads/
+public/uploads/
+
+# Lock files (keep in repo but ignore in some contexts)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml

@@ -6,6 +6,8 @@ import Presupuestos from './pages/Presupuestos'
 import Catalogo     from './pages/Catalogo'
 import Calculadoras from './pages/Calculadoras'
 import Materiales   from './pages/Materiales'
+import Pricing      from './pages/Pricing'
+import Billing      from './pages/Billing'
 import './index.css'
 
 const NAV = [
@@ -15,6 +17,8 @@ const NAV = [
   { id: 'materiales',   label: '🧱 Materiales' },
   { id: 'catalogo',     label: 'Catálogo'     },
   { id: 'calculadoras', label: '🧮 Calcular'   },
+  { id: 'pricing',      label: '💎 Planes'     },
+  { id: 'billing',      label: '💳 Facturación' },
 ]
 
 export default function App() {
@@ -70,6 +74,8 @@ export default function App() {
           {page === 'materiales'   && <Materiales   navigate={navigate} selectedObraId={selectedObraId} setSelectedObraId={setSelectedObraId} />}
           {page === 'catalogo'     && <Catalogo     navigate={navigate} />}
           {page === 'calculadoras' && <Calculadoras navigate={navigate} selectedObraId={selectedObraId} />}
+          {page === 'pricing'      && <Pricing      navigate={navigate} />}
+          {page === 'billing'      && <Billing      navigate={navigate} />}
         </ErrorBoundary>
       </main>
 
